@@ -5,25 +5,33 @@ function save_options() {
     let instanceUrl = document.getElementById('url').value;
 
     // Save settings to chrome.storage API with chrome.storage.sync.set
+        // Pass in key:value
     chrome.storage.sync.set({
-        userEmail: email,
-        instanceUrl: url
-    },function(){
+        email: userEmail,
+        url: instanceUrl
+    },function(){ // This is a callback function
         // Update status div to let user know that settings have been saved
+        let status = document.getElementById('status');
+        status.textContent = 'Settings saved.';
+        setTimeout(function() {
+            status.textContent = '';
+        }, 5000);
     });
 };
 
 // Retrieve settings from save_options()
 function restore_options() {
+    let userEmail = document.getElementById('email').value;
+    let instanceUrl = document.getElementById('url').value;
     // Get settings from chrome.storage API with chrome.storage.sync.get
     chrome.storage.sync.get({
         // Set default values 
-        userEmail: "name@example.com",
-        instanceUrl: "demo.com"
-    }, function(items) { //This is a callback function
+        email: userEmail,
+        url: instanceUrl
+    }, function(items) { // This is a callback function
         // Get the values of the items
-        document.getElementById('email').value = items.userEmail;
-        document.getElementsById('url').value = items.instanceUrl;
+        document.getElementById('email').value = items.email;
+        document.getElementById('url').value = items.url;
     });
 }
 

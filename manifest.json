@@ -1,8 +1,12 @@
 {
-    "name": "Mautic Gmail Helper",
+    "name": "Mautic Chrome Extension",
     "description": "Allows Mautic tracking for Gmail",
     "version": "1.0",
     "manifest_version": 3,
 
-    "options_page": "options.html"
+    "options_page": "options.html",
+
+    "permissions": [
+        "storage"
+      ]
 }
