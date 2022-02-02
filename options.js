@@ -23,6 +23,7 @@ function save_options() {
 function restore_options() {
     let userEmail = document.getElementById('email').value;
     let instanceUrl = document.getElementById('url').value;
+    
     // Get settings from chrome.storage API with chrome.storage.sync.get
     chrome.storage.sync.get({
         // Set default values 
