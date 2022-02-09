@@ -14,7 +14,9 @@
         }
     ],
 
-    "permissions": [
-        "storage"
-    ]
+    "permissions": [  
+        "tabs",
+        "https://mail.google.com/*",
+        "storage"      
+      ]
 }
