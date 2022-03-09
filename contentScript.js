@@ -75,7 +75,7 @@ function test() {
         } else {
             console.log("Not checked")
         }
-    }, 1000);
+    }, 10000);
 }
 
 test()
@@ -95,32 +95,32 @@ function waitForElement(element){
                 if ($(openedWindow.window.document).find(element).length == 1) {
                     resolve(true);
                 }
-            }, 100);
+            }, 1000);
     });
 }
 
 waitForElement('#mauticCheckbox').then(test())
 
 
-// Failed MutationObserver #1
-const observedCheckbox = document.querySelector("#mauticCheckbox");
+// // Failed MutationObserver #1
+// const observedCheckbox = document.querySelector("#mauticCheckbox");
 
-const observer = new MutationObserver(function() {
-    console.log('checkbox was detected');
-});
+// const observer = new MutationObserver(function() {
+//     console.log('checkbox was detected');
+// });
 
-observer.observe(observedCheckbox, {subtree: true, childList: true});
+// observer.observe(observedCheckbox, {subtree: true, childList: true});
 
 
-// Failed MutationObserver #2
-const observer = new MutationObserver(mutationRecordList => {
-    for (mutationRecord of mutationRecordList) {
-      if (mutationRecord.target.getAttribute('id')=='#mauticCheckbox') {
-        console.log('The element just appeared');
-      }
-    }
-  });
-  observer.observe(document.body, {childList: true, subtree: true});
+// // Failed MutationObserver #2
+// const observer = new MutationObserver(mutationRecordList => {
+//     for (mutationRecord of mutationRecordList) {
+//       if (mutationRecord.target.getAttribute('id')=='#mauticCheckbox') {
+//         console.log('The element just appeared');
+//       }
+//     }
+//   });
+//   observer.observe(document.body, {childList: true, subtree: true});
 
 
 // let trackingGif = '<img style="display: none;" height="1" width="1" src="' +
