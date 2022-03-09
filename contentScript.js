@@ -83,23 +83,21 @@ test()
 // TypeError: Cannot convert object to primitive type
 function waitForElement(element){
     return new Promise(function(resolve) {
-        // maybe uri could be a param too
-        openedWindow = window.open("http://mail.google.com/*"); // Might need to change this
    
         // Check the window every .1 seconds for the element
         window.setInterval(
             function() {
+
+                console.log(document.getElementById(element));
    
-                window.clearInterval(openedWindow);
-   
-                if ($(openedWindow.window.document).find(element).length == 1) {
+                if (document.getElementById(element)) {
                     resolve(true);
                 }
             }, 1000);
     });
 }
 
-waitForElement('#mauticCheckbox').then(test())
+waitForElement('mauticCheckbox').then(test())
 
 
 // // Failed MutationObserver #1
